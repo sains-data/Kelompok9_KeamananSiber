@@ -91,3 +91,67 @@ Semua relasi adalah **1 – N (One-to-Many)**:
 
 Semua mandatory, karena setiap insiden harus memiliki waktu, lokasi, jenis serangan, dan tim respon.
 
+# **3.5.3 Step 3: Logical Design – Dimensional Model**
+
+# 1. **Fact Table: `Fact_Incident`**
+- **Grain:** satu baris = satu insiden  
+- **Measures:** DurasiRespon, JumlahDataTerenam  
+- **Additivity:** Additive  
+
+---
+
+# 2. **Dimension Tables**
+| Dimensi | Fokus Analisis | Atribut |
+|--------|----------------|---------|
+| **Dim_Waktu** | Kapan insiden terjadi | Tanggal, Bulan, Tahun, Hari |
+| **Dim_Lokasi** | Lokasi serangan | Unit, Fakultas, Server |
+| **Dim_Jenis_Serangan** | Jenis serangan | NamaSerangan, Deskripsi |
+| **Dim_Tim_Respon** | Siapa yang menangani | Petugas, Jabatan, Unit |
+
+---
+
+# 3. **Star Schema**
+markdown
+Copy code
+            Dim_Waktu
+                ↑ 
+Dim_Lokasi ← Fact_Incident → Dim_Jenis_Serangan
+↓
+Dim_Tim_Respon
+
+yaml
+Copy code
+
+**Foreign Keys**
+- Fact_Incident.WaktuKey → Dim_Waktu  
+- Fact_Incident.LokasiKey → Dim_Lokasi  
+- Fact_Incident.JenisSeranganKey → Dim_Jenis_Serangan  
+- Fact_Incident.TimResponKey → Dim_Tim_Respon  
+
+---
+
+4. **Surrogate Keys**
+- Semua dimensi menggunakan **integer surrogate key**  
+- SCD Type 2 untuk histori perubahan (lokasi/tim respon)
+
+---
+
+## **3.5.4 Data Dictionary**
+
+| Tabel | Kolom | Tipe Data | Deskripsi |
+|-------|--------|-----------|------------|
+| **Fact_Incident** | ID_Incident (PK) | int | Kunci utama insiden |
+| | WaktuKey (FK) | int | Referensi Dim_Waktu |
+| | LokasiKey (FK) | int | Referensi Dim_Lokasi |
+| | JenisSeranganKey (FK) | int | Referensi Dim_Jenis_Serangan |
+| | TimResponKey (FK) | int | Referensi Dim_Tim_Respon |
+| | DurasiRespon | int | Lama penanganan (menit) |
+| | JumlahDataTerenam | int | Banyaknya data terdampak |
+| | StatusPenanganan | string | selesai/pending |
+
+| **Dim_Waktu** | WaktuKey (PK), Tanggal, Bulan, Tahun, Hari |
+| **Dim_Lokasi** | LokasiKey (PK), Unit, Fakultas, Server |
+| **Dim_Jenis_Serangan** | JenisSeranganKey (PK), NamaSerangan, Deskripsi |
+| **Dim_Tim_Respon** | TimResponKey (PK), Petugas, Jabatan, Unit |
+
+---
