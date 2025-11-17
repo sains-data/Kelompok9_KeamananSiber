@@ -6,7 +6,7 @@
 3. **Melinza Nabila** (123450122)  
 4. **Fathya Intami Gusda** (123450095)
 
-## **3.5.1 Step 1: Business Requirements Analysis**
+## **Business Requirements Analysis**
 
 # 1. **Identifikasi Stakeholders**
 
@@ -66,7 +66,7 @@ Proses utama penanganan insiden keamanan:
 
 ---
 
-## **3.5.2 Step 2: Conceptual Design**
+## **Conceptual Design**
 
 # 1. **Identifikasi Entitas**
 **Entitas dan atribut utamanya:**
@@ -91,7 +91,7 @@ Semua relasi adalah **1 – N (One-to-Many)**:
 
 Semua mandatory, karena setiap insiden harus memiliki waktu, lokasi, jenis serangan, dan tim respon.
 
-# **3.5.3 Step 3: Logical Design – Dimensional Model**
+# **3.5.3 Logical Design – Dimensional Model**
 
 # 1. **Fact Table: `Fact_Incident`**
 - **Grain:** satu baris = satu insiden  
@@ -128,7 +128,7 @@ Semua mandatory, karena setiap insiden harus memiliki waktu, lokasi, jenis seran
 
 ---
 
-## **3.5.4 Data Dictionary**
+## **Data Dictionary**
 
 | Tabel | Kolom | Tipe Data | Deskripsi |
 |-------|--------|-----------|------------|
