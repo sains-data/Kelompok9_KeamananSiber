@@ -91,7 +91,7 @@ Semua relasi adalah **1 – N (One-to-Many)**:
 
 Semua mandatory, karena setiap insiden harus memiliki waktu, lokasi, jenis serangan, dan tim respon.
 
-# **3.5.3 Logical Design – Dimensional Model**
+# **Logical Design – Dimensional Model**
 
 # 1. **Fact Table: `Fact_Incident`**
 - **Grain:** satu baris = satu insiden  
