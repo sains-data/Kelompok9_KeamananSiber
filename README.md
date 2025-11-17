@@ -130,20 +130,30 @@ Semua mandatory, karena setiap insiden harus memiliki waktu, lokasi, jenis seran
 
 ## **Data Dictionary**
 
-| Tabel | Kolom | Tipe Data | Deskripsi |
-|-------|--------|-----------|------------|
-| **Fact_Incident** | ID_Incident (PK) | int | Kunci utama insiden |
-| | WaktuKey (FK) | int | Referensi Dim_Waktu |
-| | LokasiKey (FK) | int | Referensi Dim_Lokasi |
-| | JenisSeranganKey (FK) | int | Referensi Dim_Jenis_Serangan |
-| | TimResponKey (FK) | int | Referensi Dim_Tim_Respon |
-| | DurasiRespon | int | Lama penanganan (menit) |
-| | JumlahDataTerenam | int | Banyaknya data terdampak |
-| | StatusPenanganan | string | selesai/pending |
-
-| **Dim_Waktu** | WaktuKey (PK), Tanggal, Bulan, Tahun, Hari |
-| **Dim_Lokasi** | LokasiKey (PK), Unit, Fakultas, Server |
-| **Dim_Jenis_Serangan** | JenisSeranganKey (PK), NamaSerangan, Deskripsi |
-| **Dim_Tim_Respon** | TimResponKey (PK), Petugas, Jabatan, Unit |
-
+| Tabel              | Kolom            | Tipe Data | Deskripsi                         |
+|--------------------|------------------|-----------|-----------------------------------|
+| **Fact_Incident**  | ID_Incident      | int (PK)  | Kunci utama insiden               |
+|                    | WaktuKey         | int (FK)  | Referensi ke Dim_Waktu            |
+|                    | LokasiKey        | int (FK)  | Referensi ke Dim_Lokasi           |
+|                    | JenisSeranganKey | int (FK)  | Referensi ke Dim_Jenis_Serangan   |
+|                    | TimResponKey     | int (FK)  | Referensi ke Dim_Tim_Respon       |
+|                    | DurasiRespon     | int       | Lama penanganan insiden           |
+|                    | JumlahDataTerenam| int       | Banyaknya data terdampak          |
+|                    | StatusPenanganan | string    | Status: selesai/pending           |
+| **Dim_Waktu**      | WaktuKey         | int (PK)  | Surrogate key waktu               |
+|                    | Tanggal          | date      | Tanggal kejadian                  |
+|                    | Bulan            | int       | Bulan ke-n                        |
+|                    | Tahun            | int       | Tahun kejadian                    |
+|                    | Hari             | string    | Nama hari                          |
+| **Dim_Lokasi**     | LokasiKey        | int (PK)  | Surrogate key lokasi              |
+|                    | Unit             | string    | Nama unit kerja                   |
+|                    | Fakultas         | string    | Fakultas terkait                  |
+|                    | Server           | string    | Nama server terdampak             |
+| **Dim_Jenis_Serangan** | JenisSeranganKey | int (PK) | Surrogate key jenis serangan  |
+|                        | NamaSerangan      | string   | Nama jenis serangan           |
+|                        | Deskripsi         | string   | Penjelasan singkat             |
+| **Dim_Tim_Respon**     | TimResponKey      | int (PK) | Surrogate key tim respon      |
+|                        | Petugas           | string   | Nama petugas                   |
+|                        | Jabatan           | string   | Jabatan petugas                |
+|                        | Unit              | string   | Unit kerja tim                 |
 ---
