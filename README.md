@@ -111,16 +111,8 @@ Semua mandatory, karena setiap insiden harus memiliki waktu, lokasi, jenis seran
 ---
 
 # 3. **Star Schema**
-markdown
-Copy code
-            Dim_Waktu
-                ↑ 
-Dim_Lokasi ← Fact_Incident → Dim_Jenis_Serangan
-↓
-Dim_Tim_Respon
 
-yaml
-Copy code
+![WhatsApp Image 2025-11-17 at 22 22 15_3cd83ef0](https://github.com/user-attachments/assets/234d3720-374c-479b-b89e-75c297fc9729)
 
 **Foreign Keys**
 - Fact_Incident.WaktuKey → Dim_Waktu  
@@ -130,7 +122,7 @@ Copy code
 
 ---
 
-4. **Surrogate Keys**
+# 4. **Surrogate Keys**
 - Semua dimensi menggunakan **integer surrogate key**  
 - SCD Type 2 untuk histori perubahan (lokasi/tim respon)
 
