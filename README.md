@@ -6,23 +6,23 @@
 3. **Melinza Nabila** (123450122)  
 4. **Fathya Intami Gusda** (123450095)
 
-**3.5.1 Step 1: Business Requirements Analysis**
+## **3.5.1 Step 1: Business Requirements Analysis**
 
-## 1. **Identifikasi Stakeholders**
+# 1. **Identifikasi Stakeholders**
 
-### Pengguna utama data mart:
-- **CISO / Manajer Keamanan Informasi**  
-- **Koordinator Tim Respon Insiden**  
-- **Staf Keamanan IT**  
-- **Pimpinan Fakultas / Unit TI**
+**Pengguna utama data mart:**
+- CISO / Manajer Keamanan Informasi
+- Koordinator Tim Respon Insiden
+- Staf Keamanan IT
+- Pimpinan Fakultas / Unit TI
 
-### Pengambil Keputusan:
-- **Kepala Pusat Data & Keamanan TI**  
-- **Rektor / Wakil Rektor Bidang TI**
+**Pengambil Keputusan:**
+- Kepala Pusat Data & Keamanan TI
+- Rektor / Wakil Rektor Bidang TI
 
 ---
 
-## 2. **Analisis Proses Bisnis**
+# 2. **Analisis Proses Bisnis**
 Proses utama penanganan insiden keamanan:
 1. Deteksi insiden  
 2. Klasifikasi jenis serangan (DDoS, Malware, SQL Injection, dll)  
@@ -30,14 +30,14 @@ Proses utama penanganan insiden keamanan:
 4. Respon oleh tim penanganan  
 5. Pelaporan hasil dan durasi penyelesaian  
 
-### **Key Performance Indicators (KPI)**
+**Key Performance Indicators (KPI)**
 - Rata-rata waktu respon  
 - Jumlah insiden per bulan  
 - Frekuensi serangan per unit/fakultas  
 - Jumlah data terdampak  
 - Persentase insiden selesai tepat waktu  
 
-### **Metrik Bisnis**
+**Metrik Bisnis**
 - Durasi respon (menit)  
 - Jumlah data terdampak  
 - Status penyelesaian  
@@ -45,31 +45,31 @@ Proses utama penanganan insiden keamanan:
 
 ---
 
-## 3. **Kebutuhan Analitik**
+# 3. **Kebutuhan Analitik**
 
-### **Pertanyaan bisnis utama:**
+**Pertanyaan bisnis utama:**
 - Berapa banyak insiden terjadi per bulan?  
 - Unit/fakultas mana yang paling sering terkena serangan?  
 - Jenis serangan yang paling umum terjadi?  
 - Berapa lama rata-rata penanganan insiden?  
 - Siapa petugas yang paling cepat merespon?
 
-### **Jenis Laporan**
+**Jenis Laporan**
 - Harian → daftar insiden terbaru  
 - Mingguan → tren jenis serangan  
 - Bulanan → performa tim, jumlah serangan, rata-rata durasi respon  
 
-### **Level Agregasi**
+**Level Agregasi**
 - Harian → Mingguan → Bulanan  
 - Unit → Fakultas → Institusi  
 - Jenis Serangan → Kategori  
 
 ---
 
-# 📌 **3.5.2 Step 2: Conceptual Design**
+## **3.5.2 Step 2: Conceptual Design**
 
-## 1. **Identifikasi Entitas**
-### **Entitas dan atribut utamanya:**
+# 1. **Identifikasi Entitas**
+**Entitas dan atribut utamanya:**
 
 | Entitas           | Atribut                                                                 |
 |------------------|--------------------------------------------------------------------------|
@@ -81,7 +81,7 @@ Proses utama penanganan insiden keamanan:
 
 ---
 
-## 2. **Relationships**
+# 2. **Relationships**
 Semua relasi adalah **1 – N (One-to-Many)**:
 
 - Waktu → Incident  
