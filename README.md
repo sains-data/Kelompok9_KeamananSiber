@@ -61,7 +61,7 @@ Proses utama penanganan insiden keamanan:
 
 **Level Agregasi**
 - Harian → Mingguan → Bulanan  
-- Unit → Fakultas → Institusi  
+- Fakultas → Institusi  
 - Jenis Serangan → Kategori  
 
 ---
