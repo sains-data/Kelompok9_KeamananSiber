@@ -75,7 +75,7 @@ Proses utama penanganan insiden keamanan:
 |------------------|--------------------------------------------------------------------------|
 | **Incident**     | ID_Incident (PK), WaktuKey, LokasiKey, JenisSeranganKey, TimResponKey, DurasiRespon, StatusPenanganan, JumlahDataTerenam |
 | **Waktu**        | WaktuKey (PK), Tanggal, Bulan, Tahun, Hari |
-| **Lokasi**       | LokasiKey (PK), Unit, Fakultas, Server |
+| **Lokasi**       | LokasiKey (PK), Fakultas, Server |
 | **Jenis_Serangan** | JenisSeranganKey (PK), NamaSerangan, Deskripsi |
 | **Tim_Respon**   | TimResponKey (PK), Petugas, Jabatan, Unit |
 
@@ -104,7 +104,7 @@ Semua mandatory, karena setiap insiden harus memiliki waktu, lokasi, jenis seran
 | Dimensi | Fokus Analisis | Atribut |
 |--------|----------------|---------|
 | **Dim_Waktu** | Kapan insiden terjadi | Tanggal, Bulan, Tahun, Hari |
-| **Dim_Lokasi** | Lokasi serangan | Unit, Fakultas, Server |
+| **Dim_Lokasi** | Lokasi serangan | Fakultas, Server |
 | **Dim_Jenis_Serangan** | Jenis serangan | NamaSerangan, Deskripsi |
 | **Dim_Tim_Respon** | Siapa yang menangani | Petugas, Jabatan, Unit |
 
@@ -146,7 +146,6 @@ Semua mandatory, karena setiap insiden harus memiliki waktu, lokasi, jenis seran
 |                    | Tahun            | int       | Tahun kejadian                    |
 |                    | Hari             | string    | Nama hari                          |
 | **Dim_Lokasi**     | LokasiKey        | int (PK)  | Surrogate key lokasi              |
-|                    | Unit             | string    | Nama unit kerja                   |
 |                    | Fakultas         | string    | Fakultas terkait                  |
 |                    | Server           | string    | Nama server terdampak             |
 | **Dim_Jenis_Serangan** | JenisSeranganKey | int (PK) | Surrogate key jenis serangan  |
